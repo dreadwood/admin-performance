@@ -1,5 +1,5 @@
-include ../elements/head
-include ../components/header
+include /elements/head
+include /components/header
 
 - let title = "Rx2Go Performance Page"
 
@@ -9,7 +9,13 @@ doctype html
 html(lang="en")
   +head({ title })
   body
-    main
-      +header({})
-      block content
-    include ../elements/script
+    section.account-page
+      .account-page__left
+        a.account-page__logo(href="#")
+          +svg({ name: "/img/logo-rx2go.svg", width: 97, height: 25 })
+      .account-page__right
+        +header({})
+        .account-page__content
+          .performance-page
+            block content
+    include /elements/script

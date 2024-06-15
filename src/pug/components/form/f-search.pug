@@ -1,0 +1,7 @@
+include /elements/images
+
+mixin f-search({})
+  .f-search
+    input(type="search" placeholder="Search...")
+    .f-search__icon
+      +svg({ name: "icon-magnifier", width: 24, height: 24 })

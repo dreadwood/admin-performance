@@ -90,8 +90,14 @@ const js = () => {
 
 const html = () => {
   return gulp
-    .src('src/pug/pages/*.pug')
-    .pipe(pug({ pretty: true }))
+    .src('src/pug/pages/**/*.pug')
+    .pipe(plumber())
+    .pipe(
+      pug({
+        pretty: true,
+        basedir: 'src/pug'
+      })
+    )
     .pipe(gulp.dest('dist'))
 }
 

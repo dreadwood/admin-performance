@@ -1,0 +1,139 @@
+.account-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: $container-max;
+  min-width: 1660px;
+  margin: 0 auto;
+  background-color: $color-white;
+}
+.account-page__left {
+  flex-shrink: 0;
+  width: 132px;
+  padding-top: 19px;
+  border-right: 1px solid transparentize($color-cornflower-blue, 0.8);
+}
+.account-page__logo {
+  display: block;
+  width: max-content;
+  width: 97px;
+  height: 25px;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.account-page__right {
+  width: 100%;
+  font-family: $font-account;
+}
+
+// .account-page__header {
+//   display: flex;
+//   align-items: center;
+//   column-gap: 16px;
+//   min-height: 80px;
+//   padding: 20px 15px;
+//   border-bottom: 1px solid $color-very-pale-blue;
+// }
+.account-page__header {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  min-height: 64px;
+  padding: 10px 16px;
+  border-bottom: 1px solid transparentize($color-cornflower-blue, 0.8);
+}
+
+// .account-page__header-title {
+//   margin: 0;
+//   margin-right: auto;
+//   font-size: 22px;
+//   line-height: 130%;
+// }
+.account-page__header-title {
+  margin: 0;
+  margin-right: auto;
+  font-size: 22px;
+  line-height: 130%;
+  font-weight: 700;
+  color: $color-signal-blue;
+  text-transform: uppercase;
+}
+.account-page__header-labels {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+.account-page__search {
+  width: 240px;
+}
+
+// .account-page__header-logo {
+//   width: 48px;
+//   height: 48px;
+//   overflow: hidden;
+//   background-color: transparentize($color-blue-light, 0.7);
+//   border-radius: 50%;
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// }
+.account-page__header-logo {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background-color: transparentize($color-blue-light, 0.7);
+  border-radius: 50%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.account-page__container {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+}
+.account-page__panel {
+  flex-shrink: 0;
+  margin-right: 27px;
+}
+.account-page__content {
+  width: 100%;
+  height: 100%;
+}
+.account-page__content-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.account-page__label {
+  margin-bottom: 32px;
+}
+.account-page__switch {
+  width: max-content;
+  margin: 0 auto 24px auto;
+}
+.account-page__msg {
+  width: max-content;
+  margin-top: 226px;
+  margin-right: auto;
+  margin-left: auto;
+  &--img {
+    margin-top: 135px;
+  }
+}
+.account-page__subscription {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  column-gap: 12px;
+}

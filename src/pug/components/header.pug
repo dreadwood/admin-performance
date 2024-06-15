@@ -1,2 +1,9 @@
+include /components/form/f-search
+
 mixin header({})
-  header.header
+  header.account-page__header
+    h1.account-page__header-title Performance Page
+    form.account-page__search(action="#" role="search")
+      +f-search({})
+    .account-page__header-logo
+      img(src="/img/placeholder-vertical.jpg" width="40" height="40" alt="")
