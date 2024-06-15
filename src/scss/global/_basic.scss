@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  height: 100%;
+  min-width: $container-min;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $font-text;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  color: $color-black;
+  word-break: break-word;
+  background-color: $color-white;
+}
+main {
+  flex-grow: 1;
+  flex-shrink: 0;
+}

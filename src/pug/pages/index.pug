@@ -1,0 +1,73 @@
+extends ../elements/layout-page
+
+block data
+  -
+    title = "Rx2Go — Performance Page"
+
+    const trackingPages = [
+      { name: "Tracking link analytics Regular", url: "tracking/analytics-page.html" },
+    ]
+
+    const dispatcherPages = [
+      { name: "Dispatcher Analytics Income", url: "dispatcher/income-page.html" },
+    ]
+
+
+block content
+  mixin page-list({list})
+    ul
+      each it in list
+        li
+          a(href=it.url) #{it.name} ( #[span=it.url] )
+  style.
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    body {
+      --color-main: #4682b4;
+      --color-bg: #ffffff;
+      --color-title: #162854;
+      --color-text: #4d5156;
+      padding: 20px 40px;
+      font-family: "Lato", sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+    h1 {
+      font-size: 22px;
+      line-height: 29px;
+      font-weight: 700;
+      color: var(--color-title);
+      text-transform: uppercase;
+    }
+    ul,
+    ol {
+      margin-top: 20px;
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:visited {
+      color: var(--color-text);
+    }
+    a:hover,
+    a:focus {
+      color: var(--color-main);
+    }
+    a span { color: gray; }
+
+  h1=title
+
+  h2 Tracking link analytics
+  +page-list({ list: trackingPages })
+
+  h2 Dispatcher Analytics
+  +page-list({ list: dispatcherPages })
+
