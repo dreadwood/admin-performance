@@ -1,0 +1,9 @@
+mixin pf-btn-elipse-icon({ text, isActive, isDisabled, icon })
+  button.pf-btn-elipse-icon(
+    class=(isActive && 'actv')
+    disabled=(isDisabled ? true : false)
+    onClick="this.classList.toggle('actv')"
+  )
+    if icon
+      +svg({ name: icon, width: 20, height: 20 })
+    =text

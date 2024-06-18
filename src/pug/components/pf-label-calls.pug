@@ -1,0 +1,10 @@
+mixin pf-label-calls({ color, count, percent })
+  .pf-label-calls(class=color)
+    .pf-label-calls__popover
+      if color === "yellow"
+        | Voicemail left
+      else if color === "red"
+        | Unreachable
+      else
+        | Successful call
+    | #{count} (#{percent})

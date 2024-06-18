@@ -1,0 +1,62 @@
+include /elements/images
+
+mixin pf-btn-stats-info({ title, sum, color, isExtended })
+  button.pf-btn-stats__info(onclick=(
+    isExtended &&
+    "event.stopPropagation(); this.classList.toggle('actv');"
+  ))
+    .pf-btn-stats__info-title
+      .pf-btn-stats__info-dot(class=color)
+      =title
+      if isExtended
+        +svg({
+          name: "icon-arrow-stats-up",
+          width: 16,
+          height: 16,
+          classname: "icon-arrow-stats-up"
+        })
+        +svg({
+          name: "icon-arrow-stats-down",
+          width: 16,
+          height: 16,
+          classname: "icon-arrow-stats-down"
+        })
+      .pf-btn-stats__info-sum=sum
+    if isExtended
+      .pf-btn-stats__info-additional
+        .pf-btn-stats__info-item #[span up to 15 min] #[span 234 (67%)]
+        .pf-btn-stats__info-item #[span 15-30 min] #[span 23 (22%)]
+        .pf-btn-stats__info-item #[span 30-45 min] #[span 34 (29%)]
+        .pf-btn-stats__info-item #[span 45+ min] #[span 4 (2%)]
+
+
+mixin pf-btn-stats({ title, count, isActive })
+  .pf-btn-stats(
+    class=(isActive && "actv")
+    onclick="this.classList.toggle('actv')"
+  )
+    .pf-btn-stats__title=title
+    .pf-btn-stats__value
+      .pf-btn-stats__chart
+        img(src="/img/donut-diagram.svg" width="109" height="109")
+      .pf-btn-stats__count
+        .pf-btn-stats__count-sup All
+        =count
+    .pf-btn-stats__bottom
+      +pf-btn-stats-info({
+        title: "On time",
+        sum: "2,000 (45%)",
+        color: "green",
+      })
+      +pf-btn-stats-info({
+        title: "Early",
+        sum: "3,567 (35%)",
+        color: "green",
+        isExtended: true
+      })
+      +pf-btn-stats-info({
+        title: "Late",
+        sum: "1,234 (22%)",
+        color: "red",
+        isExtended: true
+      })

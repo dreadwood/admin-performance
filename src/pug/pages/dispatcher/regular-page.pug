@@ -12,7 +12,7 @@ block content
   h2.pf-title Dispatcher Analytics
   .pf-page__filter-list
     each it in typeTable
-      +pf-btn-elipse({ text: it, isActive: it === "Income" })
-  include /mocks/table-dispatcher-income
-  +pf-table({ table: tableDispatcherIncome })
+      +pf-btn-elipse({ text: it, isActive: it === "Regular" })
+  include /mocks/table-dispatcher-regular
+  +pf-table({ table: tableDispatcherRegular })
 

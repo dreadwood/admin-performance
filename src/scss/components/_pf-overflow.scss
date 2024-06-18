@@ -1,0 +1,9 @@
+.pf-overflow {
+  position: fixed;
+  display: grid;
+  align-items: center;
+  padding: 58px;
+  overflow: scroll;
+  background-color: transparentize($color-black, 0.8);
+  inset: 0 0 0 0;
+}

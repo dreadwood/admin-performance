@@ -1,0 +1,49 @@
+.pf-label-calls {
+  position: relative;
+  width: max-content;
+  min-width: 80px;
+  padding: 4px 9px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: center;
+  color: $color-label-green-text;
+  background-color: transparentize($color-label-green, 0.8);
+  border: 1px solid $color-label-green;
+  border-radius: 8px;
+  cursor: default;
+  &:hover .pf-label-calls__popover {
+    display: block;
+  }
+  &.yellow {
+    color: $color-label-yellow-text;
+    background-color: transparentize($color-label-yellow, 0.8);
+    border-color: $color-label-yellow;
+    .pf-label-calls__popover  {
+      color: $color-label-yellow;
+      border-color: $color-label-yellow;
+    }
+  }
+  &.red {
+    color: $color-label-red-text;
+    background-color: transparentize($color-label-red, 0.8);
+    border-color: $color-label-red;
+    .pf-label-calls__popover  {
+      color: $color-label-red;
+      border-color: $color-label-red;
+    }
+  }
+}
+.pf-label-calls__popover {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  display: none;
+  padding: 5px 7px;
+  color: $color-label-green;
+  white-space: nowrap;
+  background-color: $color-white;
+  border: 1px solid $color-label-green;
+  border-radius: 8px;
+  transform: translateX(-50%);
+}

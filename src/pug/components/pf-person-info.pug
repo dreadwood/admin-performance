@@ -1,0 +1,10 @@
+include /components/pf-clipboard
+
+mixin pf-person-info({ img, name, id })
+  .pf-person-table
+    .pf-person-table__img
+      img(src=img || "/img/placeholder-user.png" width="36" height="36")
+    .pf-person-table__name=name
+    .pf-person-table__id
+      =id
+      +pf-clipboard({})

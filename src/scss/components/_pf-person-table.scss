@@ -1,0 +1,32 @@
+.pf-person-table {
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  gap: 2px 8px;
+  width: max-content;
+  font-family: $font-account;
+  font-size: 14px;
+  line-height: 130%;
+  color: $color-gray-067;
+}
+.pf-person-table__img {
+  grid-row: 1 / 3;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.pf-person-table__id {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.pf-person-table__name {
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 600;
+}

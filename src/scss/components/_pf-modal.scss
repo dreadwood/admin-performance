@@ -1,0 +1,29 @@
+.pf-modal {
+  position: relative;
+  padding: 24px 24px 44px 24px;
+  background-color: $color-white;
+  border-radius: 30px;
+}
+.pf-modal-close {
+  @include transition(background-color);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  color: $color-cornflower-blue;
+  background-color: transparentize($color-cornflower-blue, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: transparentize($color-cornflower-blue, 0.8);
+  }
+  svg {
+    fill: currentcolor;
+  }
+}

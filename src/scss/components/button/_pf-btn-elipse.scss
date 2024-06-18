@@ -1,0 +1,28 @@
+.pf-btn-elipse {
+  @include transition(background-color, color);
+  margin: 0;
+  padding: 11px 20px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 400;
+  text-align: center;
+  color: $color-gray-067;
+  text-decoration: none;
+  background-color: transparentize($color-cornflower-blue, 0.8);
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  &:disabled {
+    background-color: transparentize($color-cornflower-blue, 0.9);
+    cursor: default;
+  }
+  &:not(:disabled, .actv):hover {
+    color: $color-gray-067;
+    background-color: transparentize($color-cornflower-blue, 0.6);
+  }
+  &.actv {
+    color: $color-white;
+    background-color: $color-cornflower-blue;
+  }
+}

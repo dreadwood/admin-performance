@@ -1,0 +1,28 @@
+include /elements/images
+
+mixin pf-btn-info({ title, num, trendUp, trendDown, stats, color, isHelp, icon })
+  .pf-btn-info(class=color class=icon && "icon")
+    if icon
+      .pf-btn-info__icon
+        +svg({ name: icon, width: 30, height: 30 })
+    .pf-btn-info__top
+      =title
+      if isHelp
+        .pf-btn-info__help
+          .pf-btn-info__help-icon
+            +svg({ name: "icon-question", width: 20, height: 20 })
+          .pf-btn-info__help-drop
+            .pf-btn-info__help-title=title
+            | All incoming calls for the selected time period
+    .pf-btn-info__bottom
+      .pf-btn-info__num=num
+      if trendUp
+        .pf-btn-info__trend.up
+          =trendUp
+          +svg({ name: "icon-trending-up", width: 16, height: 16 })
+      else if trendDown
+        .pf-btn-info__trend.down
+          =trendDown
+          +svg({ name: "icon-trending-down", width: 16, height: 16 })
+      else if stats
+        .pf-btn-info__stats=stats

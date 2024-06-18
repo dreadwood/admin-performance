@@ -4,12 +4,27 @@ block data
   -
     title = "Rx2Go — Performance Page"
 
+    const deliveryPages = [
+      { name: "On time delivery main", url: "delivery/main-page.html" },
+      { name: "On time delivery new-york", url: "delivery/ny-page.html" },
+    ]
+
     const trackingPages = [
       { name: "Tracking link analytics Regular", url: "tracking/analytics-page.html" },
     ]
 
+    const ticketsPages = [
+      { name: "Tickets analytics main", url: "tickets/main-page.html" },
+      { name: "Tickets analytics Complain", url: "tickets/complain-page.html" },
+    ]
+
     const dispatcherPages = [
-      { name: "Dispatcher Analytics Income", url: "dispatcher/income-page.html" },
+      { name: "Dispatcher analytics regular", url: "dispatcher/regular-page.html" },
+      { name: "Dispatcher analytics income", url: "dispatcher/income-page.html" },
+    ]
+
+    const uiPages = [
+      { name: "UI", url: "ui-page.html" },
     ]
 
 
@@ -41,9 +56,15 @@ block content
       color: var(--color-title);
       text-transform: uppercase;
     }
+    h2 {
+      font-size: 20px;
+      line-height: 26px;
+      margin: 0;
+      margin-top: 20px;
+    }
     ul,
     ol {
-      margin-top: 20px;
+      margin-top: 10px;
       margin-bottom: 0;
       padding-left: 20px;
     }
@@ -65,9 +86,17 @@ block content
 
   h1=title
 
+  h2 UI
+  +page-list({ list: uiPages })
+
+  h2 On time delivery
+  +page-list({ list: deliveryPages })
+
   h2 Tracking link analytics
   +page-list({ list: trackingPages })
 
+  h2 Tickets Analytics
+  +page-list({ list: ticketsPages })
+
   h2 Dispatcher Analytics
   +page-list({ list: dispatcherPages })
-

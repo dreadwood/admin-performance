@@ -1,0 +1,19 @@
+.pf-page {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background-color: $color-gray-973;
+}
+.pf-page__top {
+  display: flex;
+  align-items: center;
+}
+.pf-page__filter-list {
+  --gap: 8px;
+  --margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap);
+  margin-bottom: var(--margin-bottom);
+}

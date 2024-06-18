@@ -1,0 +1,40 @@
+include /elements/images
+
+mixin pf-player({})
+  .pf-player
+    button.pf-player__btn-play(onClick="this.classList.toggle('playing')")
+      +svg({
+        name: "icon-player-play",
+        width: 24,
+        height: 24,
+        classname: "icon-player-play"
+      })
+      +svg({
+        name: "icon-player-pause",
+        width: 24,
+        height: 24,
+        classname: "icon-player-pause"
+      })
+    .pf-player__time 0:39
+    .pf-player__timeline
+      img(src="/img/player-timeline@2x.png" weight="307" height="30")
+    .pf-player__volume
+      button.pf-player__btn-volume(onClick="this.classList.toggle('mute')")
+        +svg({
+          name: "icon-player-volume",
+          width: 22,
+          height: 22,
+          classname: "icon-player-volume"
+        })
+        +svg({
+          name: "icon-player-mute",
+          width: 22,
+          height: 22,
+          classname: "icon-player-mute"
+        })
+    .pf-player__menu
+      button.pf-player__btn
+        +svg({ name: "icon-player-menu", width: 22, height: 22 })
+      .pf-player__menu-drop
+        each it in ["0,5", "0,75", "1", "1,25", "1,5"]
+          button.pf-player__speed-btn(class=(it === "1" && "actv"))=it

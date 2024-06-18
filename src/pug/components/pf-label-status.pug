@@ -1,0 +1,6 @@
+include /elements/images
+
+mixin pf-label-status({ name, icon, color })
+  .pf-label-status(class=color)
+    +svg({ name: icon, width: 17, height: 17 })
+    =name

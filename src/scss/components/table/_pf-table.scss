@@ -1,0 +1,75 @@
+.pf-table {
+  width: 100%;
+  overflow: hidden;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-signal-blue;
+  border-bottom: 1px solid $color-periwinkle-crayola;
+  border-radius: 15px;
+  border-collapse: collapse;
+  th {
+    padding: 14px 16px 13px 16px;
+    font-weight: 700;
+    background-color: transparentize($color-cornflower-blue, 0.8);
+  }
+  td {
+    padding: 11px 16px;
+    background-color: $color-white;
+  }
+  tbody tr {
+    min-height: 60px;
+    border-bottom: 1px solid $color-periwinkle-crayola;
+  }
+}
+.pf-table__label {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  width: max-content;
+}
+.pf-table__raiting {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.pf-table__raiting-good {
+  color: $color-lime-green;
+}
+.pf-table__raiting-bad {
+  color: $color-radical-red;
+}
+.pf-table__col-name {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.pf-table__btn-sort {
+  display: block;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  row-gap: 2px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  svg {
+    @include transition(fill);
+    display: block;
+    fill: $color-light-purple-blue;
+  }
+  &.top {
+    .icon-arrow-filter-top {
+      fill: $color-signal-blue;
+    }
+  }
+  &.bottom {
+    .icon-arrow-filter-bottom {
+      fill: $color-signal-blue;
+    }
+  }
+}

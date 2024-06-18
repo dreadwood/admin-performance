@@ -1,0 +1,16 @@
+.pf-clipboard {
+  --pf-clipboard-color: #{$color-cornflower-blue};
+  @include transition(opacity);
+  margin: 0;
+  padding: 0;
+  color: var(--pf-clipboard-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  svg {
+    fill: currentcolor;
+  }
+  &:not(:disabled, .actv):hover {
+    opacity: 0.8;
+  }
+}

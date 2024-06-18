@@ -1,0 +1,144 @@
+extends /elements/layout-page
+include /elements/images
+include /components/button/pf-btn-elipse
+include /components/button/pf-btn-elipse-icon
+include /components/button/pf-btn-info
+include /components/button/pf-btn-stats
+
+block data
+  - title = "Rx2Go: Performance Page — Tickets analytics main"
+  - activeSections = "On time delivery"
+  - const screens = ["All (1,000)", "Open (9)", "Assigned (70)", "In Progress (78)", "Ready to Resolve (778)", "On Hold (778)"]
+  -
+    const filters = [
+      {
+        title: "Orders",
+        num: "2,345",
+        trendUp: "12,71 %",
+        icon: "/img/info-order.svg"
+      },
+      {
+        title: "Created",
+        num: "2,345",
+        trendUp: "12,71 %",
+        icon: "/img/info-create.svg"
+      },
+      {
+        title: "Delivered",
+        num: "1,898",
+        trendUp: "12,71 %",
+        icon: "/img/info-check.svg"
+      },
+      {
+        title: "On time",
+        num: "99,6%",
+        trendDown: "8 %",
+        icon: "/img/info-done.svg"
+      },
+      {
+        title: "Late",
+        num: "12,3%",
+        trendDown: "12 %",
+        icon: "/img/info-late.svg"
+      },
+      {
+        title: "Early",
+        num: "12,3%",
+        trendDown: "12 %",
+        icon: "/img/info-early.svg"
+      },
+      {
+        title: "Delivery Attempted",
+        num: "447",
+        trendDown: "12 %",
+        icon: "/img/info-attempted.svg"
+      },
+      {
+        title: "Missed",
+        num: "1,447",
+        trendDown: "12 %",
+        icon: "/img/info-missed.svg"
+      },
+      {
+        title: "Rescheduled",
+        num: "1,447",
+        trendDown: "12 %",
+        icon: "/img/info-rescheduled.svg"
+      },
+    ]
+    const filters2 = [
+      {
+        text: "All - 14 200",
+        active: true
+      },
+      {
+        text: "Regular - 345 (56%)",
+        icon: "/img/label-auto.svg",
+      },
+      {
+        text: "Time Window Next Day - 456 (78%)",
+        icon: "/img/label-clock.svg",
+      },
+      {
+        text: "Next Day Special Hours - 345 (78%)",
+        icon: "/img/label-timer.svg",
+      },
+      {
+        text: "Same Day - 56 (8%)",
+        icon: "/img/label-timer-2.svg",
+      },
+      {
+        text: "Same Day Special Hours - 56 (18%)",
+        icon: "/img/label-timer-3.svg",
+      },
+      {
+        text: "STAT - 56 (18%)",
+        icon: "/img/label-lightning.svg",
+      },
+      {
+        text: "Pharmacy Pickup - 56 (18%)",
+        icon: "/img/label-cross.svg",
+      },
+      {
+        text: "Pickup - 56 (18%)",
+        icon: "/img/label-bag.svg",
+      },
+    ]
+
+block content
+  .pf-page__filter-list(style="--margin-bottom: 24px;")
+    each it in filters
+      +pf-btn-info({
+        title: it.title,
+        num: it.num,
+        trendUp: it.trendUp,
+        trendDown: it.trendDown,
+        icon: it.icon
+      })
+  h2.pf-title On time delivery
+  .pf-page__filter-list(style="--gap: 4px;")
+    each it in filters2
+      +pf-btn-elipse-icon({
+        text: it.text,
+        icon: it.icon,
+        isActive: it.active
+      })
+  .pf-page__filter-list(style="--margin-bottom: 24px;")
+    +pf-btn-stats({ title: "All Facilities", count: "32,455" })
+    +pf-btn-stats({ title: "New York", count: "20,455" })
+    +pf-btn-stats({ title: "California", count: "2,455" })
+    +pf-btn-stats({ title: "Massachusets", count: "6,455" })
+  .pf-chart-canvas
+    .pf-chart-canvas__top
+      .pf-chart-canvas__title All Facilities:
+      .pf-chart-canvas__filter
+        each it, i in ["15min", "30min", "1h", "3h"]
+          button.pf-chart-canvas__filter-btn(
+            class=(i === 1 && "actv")
+            onclick="this.classList.toggle('actv');"
+          )=it
+    .pf-chart-canvas__legend
+      .pf-chart-canvas__legend-item.green On time
+      .pf-chart-canvas__legend-item.blue Early
+      .pf-chart-canvas__legend-item.red Late
+

@@ -1,14 +1,19 @@
 include /elements/head
 include /components/header
+include /components/button/pf-btn-elipse
 
 - let title = "Rx2Go Performance Page"
+- let pageScrollLock = false
+- let activeSections = ""
+-
+  const sections = ["On time delivery", "Call Analytics", "Message Analytics", "Tracking Link Analytics", "QAQC Analytics", "Tickets Analytics", "Dispatcher Analytics"]
 
 block data
 
 doctype html
 html(lang="en")
   +head({ title })
-  body
+  body(class=pageScrollLock && "pf-scroll-lock")
     section.account-page
       .account-page__left
         a.account-page__logo(href="#")
@@ -16,6 +21,14 @@ html(lang="en")
       .account-page__right
         +header({})
         .account-page__content
-          .performance-page
+          .pf-page
+            .pf-page__top
+              .pf-page__filter-list
+                each it, i in sections
+                  +pf-btn-elipse({
+                    text: it,
+                    isActive: it === activeSections
+                  })
+              // calendar
             block content
     include /elements/script

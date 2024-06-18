@@ -1,0 +1,11 @@
+.pf-raiting {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.pf-raiting__good {
+  color: $color-lime-green;
+}
+.pf-raiting__bad {
+  color: $color-radical-red;
+}

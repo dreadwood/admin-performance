@@ -1,0 +1,109 @@
+extends /elements/layout-page
+include /elements/images
+include /components/button/pf-btn-elipse
+include /components/button/pf-btn-elipse-small
+include /components/button/pf-btn-info
+
+block data
+  - title = "Rx2Go: Performance Page — Tickets analytics main"
+  - activeSections = "Tickets Analytics"
+  - const screens = ["All (1,000)", "Open (9)", "Assigned (70)", "In Progress (78)", "Ready to Resolve (778)", "On Hold (778)"]
+  -
+    const filters1 = [
+      {
+        text: "All tickets",
+        num: "1,300",
+        trendUp: "87,92 %"
+      },
+      {
+        text: "New tickets",
+        num: "1,300",
+        trendUp: "87,92 %"
+      },
+    ]
+    const filters2 = [
+      {
+        text: "Missing package",
+        num: "1,300",
+        trendUp: "87,92 %"
+      },
+      {
+        text: "Wrong address (pharmacy)",
+        num: "11,234",
+        trendUp: "87,92 %",
+        color: "red"
+      },
+      {
+        text: "Delivered to wrong Address",
+        num: "11,234",
+        trendUp: "87,92 %",
+        color: "red"
+      },
+      {
+        text: "STAT",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Pick up",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "QAQC",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Feedback",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Complain",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Late delivery",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Complain to Dispatcher",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Complain to Driver",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+      {
+        text: "Other",
+        num: "1,000",
+        trendUp: "87,92 %",
+      },
+    ]
+
+block content
+  h2.pf-title Tickets Analytics
+  .pf-page__filter-list(style="--gap: 4px;")
+    each it in screens
+      +pf-btn-elipse-small({ text: it, isActive: it === "All (1,000)" })
+  .pf-page__filter-list
+    each it in filters1
+      +pf-btn-info({
+        title: it.text,
+        num: it.num,
+        trendUp: it.trendUp,
+        color: it.color
+      })
+  .pf-page__filter-list
+    each it in filters2
+      +pf-btn-info({
+        title: it.text,
+        num: it.num,
+        trendUp: it.trendUp,
+        color: it.color
+      })

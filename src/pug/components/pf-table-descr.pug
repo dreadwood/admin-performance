@@ -1,0 +1,30 @@
+include /elements/images
+include /components/pf-label-calls
+include /components/pf-person-info
+include /components/pf-label-status
+include /components/pf-label-orders
+
+mixin pf-table-descr({ table })
+  .pf-table-descr
+    table
+      thead
+        tr.pf-table__head
+          each it in table.head
+            th
+              .pf-table__col-name=it
+      tbody
+        each row in table.body
+          tr
+            each cell in row
+              if cell.type ==="orders"
+                td
+                  +pf-label-orders({ id: cell.data })
+              else if cell.type ==="status"
+                td
+                  +pf-label-status({
+                    name: cell.data.text,
+                    icon: cell.data.icon,
+                    color: cell.data.color
+                  })
+              else
+                td=cell.data

@@ -1,0 +1,7 @@
+mixin pf-raiting({ num })
+  .pf-raiting
+    +svg({ name: 'icon-star', width: 21, height: 21 })
+    if num > 3
+      .pf-raiting__good=num
+    else
+      .pf-raiting__bad=num

@@ -1,0 +1,33 @@
+.pf-label-status {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  width: max-content;
+  padding: 8px 12px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-white;
+  white-space: nowrap;
+  background-color: $color-dark-pastel-green;
+  border-radius: 30px;
+  svg {
+    flex-shrink: 0;
+    fill: currentcolor;
+  }
+  &.green {
+    background-color: $color-dark-pastel-green;
+  }
+  &.yellow {
+    background-color: $color-neon-carrot;
+  }
+  &.blue {
+    background-color: $color-cobalt-blue-2;
+  }
+  &.lightblue {
+    background-color: $color-blue;
+  }
+  &.red {
+    background-color: $color-rich-yellow-pink;
+  }
+}

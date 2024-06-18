@@ -1,0 +1,134 @@
+.pf-player {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  width: 423px;
+  min-height: 32px;
+  padding: 0 4px;
+  font-family: $font-account;
+  background-color: transparentize($color-cornflower-blue, 0.9);
+  border-radius: 30px;
+  & > *:not(.pf-player__timeline) {
+    flex-shrink: 0;
+  }
+}
+.pf-player__btn,
+.pf-player__btn-play,
+.pf-player__btn-volume {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: $color-cornflower-blue;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  svg {
+    display: block;
+    fill: currentcolor;
+  }
+  &:not(:disabled, .playing):hover {
+    color: transparentize($color-cornflower-blue, 0.1);
+  }
+}
+.pf-player__btn-play {
+  .icon-player-pause {
+    display: none;
+  }
+  &.playing {
+    .icon-player-play {
+      display: none;
+    }
+    .icon-player-pause {
+      display: block;
+    }
+  }
+}
+.pf-player__btn-volume {
+  .icon-player-mute {
+    display: none;
+  }
+  &.mute {
+    .icon-player-volume {
+      display: none;
+    }
+    .icon-player-mute {
+      display: block;
+    }
+  }
+}
+.pf-player__time {
+  font-size: 12px;
+  line-height: 120%;
+  color: transparentize($color-gray-blue, 0.5);
+}
+.pf-player__timeline {
+  flex-grow: 1;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+.pf-player__menu-drop {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  width: 180px;
+  padding: 12px;
+  background-color: $color-white;
+  border-radius: 10px;
+  & > *:not(:first-child) {
+    margin-top: 4px;
+  }
+}
+.pf-player__menu-btn {
+  @include transition(color, background-color);
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 400;
+  color: $color-bluish-black;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: currentcolor;
+  }
+  &:hover {
+    color: $color-white;
+    background-color: $color-cornflower-blue;
+  }
+}
+.pf-player__speed-btn {
+  @include transition(color, background-color);
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 400;
+  text-align: left;
+  color: $color-bluish-black;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  &:not(.actv):hover {
+    background-color: transparentize($color-cornflower-blue, 0.9);
+  }
+  &.actv {
+    color: $color-white;
+    background-color: $color-cornflower-blue;
+  }
+}

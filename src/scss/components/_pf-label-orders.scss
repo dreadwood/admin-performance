@@ -1,0 +1,10 @@
+.pf-label-orders {
+  @include word-break;
+  width: max-content;
+  padding: 5px;
+  font-family: $font-additional;
+  color: $color-cornflower-blue;
+  white-space: nowrap;
+  background-color: transparentize($color-cornflower-blue, 0.9);
+  border-radius: 12px
+}

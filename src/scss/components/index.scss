@@ -1,15 +1,31 @@
 // page
-@import "account-page"; // TODO: 2024-06-16 / change css class name?
-@import "performance-page"; // TODO: 2024-06-16 / change css class name?
-
+@import "page/account-page"; // TODO: 2024-06-16 / change css class name?
+@import "page/pf-page";
 
 // form
 @import "form/f-search"; // TODO: 2024-06-16 / change css class name?
 
 // button
+@import "button/pf-btn-elipse-icon";
+@import "button/pf-btn-elipse-small";
+@import "button/pf-btn-elipse";
+@import "button/pf-btn-info";
+@import "button/pf-btn-stats";
 
+// table
+@import "table/pf-table-descr";
+@import "table/pf-table";
 
 //
-
-
-@import "wrp";
+@import "pf-chart-canvas";
+@import "pf-clipboard";
+@import "pf-label-calls";
+@import "pf-label-orders";
+@import "pf-label-status";
+@import "pf-modal";
+@import "pf-overflow";
+@import "pf-person-table"; // TODO: 2024-06-16 / change css class name?
+@import "pf-player";
+@import "pf-raiting";
+@import "pf-scroll-lock";
+@import "pf-title";

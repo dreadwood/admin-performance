@@ -1,0 +1,6 @@
+mixin pf-btn-elipse-small({ text, isActive, isDisabled })
+  button.pf-btn-elipse-small(
+    class=(isActive && 'actv')
+    disabled=(isDisabled ? true : false)
+    onClick="this.classList.toggle('actv')"
+  )=text

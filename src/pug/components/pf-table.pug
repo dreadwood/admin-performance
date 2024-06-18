@@ -1,0 +1,55 @@
+include /elements/images
+include /components/pf-label-calls
+include /components/pf-person-info
+include /components/pf-raiting
+
+mixin pf-table({ table })
+  table.pf-table
+    thead
+      tr.pf-table__head
+        each it in table.head
+          th
+            .pf-table__col-name
+              =it
+              button.pf-table__btn-sort(onclick="changeStateBtnSort(this)")
+                +svg({
+                  name: "icon-arrow-filter-top",
+                  width: 8,
+                  height: 5,
+                  classname: "icon-arrow-filter-top"
+                })
+                +svg({
+                  name: "icon-arrow-filter-bottom",
+                  width: 8,
+                  height: 5,
+                  classname: "icon-arrow-filter-bottom"
+                })
+    tbody
+      each row in table.body
+        tr
+          each cell in row
+            if cell.type ==="person"
+              td
+                +pf-person-info({ name: cell.data.name, id: cell.data.id })
+            else if cell.type ==="calls"
+              td
+                .pf-table__label
+                  +pf-label-calls({ color: "green", count: 12, percent: "20%" })
+                  +pf-label-calls({ color: "yellow", count: 13, percent: "22%" })
+                  +pf-label-calls({ color: "red", count: 77, percent: "76%" })
+            else if cell.type ==="raiting"
+              td
+                +pf-raiting({ num: cell.data })
+            else
+              td=cell.data
+    script.
+      const changeStateBtnSort = (btn) => {
+        if (btn.classList.contains('top')) {
+          btn.classList.remove('top')
+          btn.classList.add('bottom')
+        } else if (btn.classList.contains('bottom')) {
+          btn.classList.remove('bottom')
+        } else {
+          btn.classList.add('top')
+        }
+      }
