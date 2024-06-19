@@ -1,6 +1,6 @@
-# Create account
+<!-- # Create account -->
 
-**Опубликованная версия доступна [тут](https://dreadwood-rx4route.netlify.app/)**
+<!-- **Опубликованная версия доступна [тут](https://dreadwood-rx4route.netlify.app/)** -->
 
 ## Описание
 
