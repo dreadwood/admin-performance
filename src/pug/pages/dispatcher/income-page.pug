@@ -13,6 +13,7 @@ block content
   .pf-page__filter-list
     each it in typeTable
       +pf-btn-elipse({ text: it, isActive: it === "Income" })
-  include /mocks/table-dispatcher-income
-  +pf-table({ table: tableDispatcherIncome })
+  .pf-page__content
+    include /mocks/table-dispatcher-income
+    +pf-table({ table: tableDispatcherIncome })
 

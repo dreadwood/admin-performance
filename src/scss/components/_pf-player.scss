@@ -73,12 +73,16 @@
   position: absolute;
   top: calc(100% + 5px);
   right: 0;
+  display: none;
   width: 180px;
   padding: 12px;
   background-color: $color-white;
   border-radius: 10px;
   & > *:not(:first-child) {
     margin-top: 4px;
+  }
+  &.show {
+    display: block;
   }
 }
 .pf-player__menu-btn {
@@ -130,5 +134,41 @@
   &.actv {
     color: $color-white;
     background-color: $color-cornflower-blue;
+  }
+}
+.pf-player__set-btn {
+  @include transition(color, background-color);
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  font-family: $font-account;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 400;
+  text-align: left;
+  color: $color-bluish-black;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    color: $color-white;
+    background-color: $color-cornflower-blue;
+  }
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: currentcolor;
+  }
+}
+.pf-player__menu-set,
+.pf-player__menu-speed {
+  display: none;
+  &.show {
+    display: block;
   }
 }

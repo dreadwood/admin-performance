@@ -1,0 +1,27 @@
+mixin chart-tracking-analytics({})
+  -
+    const labels = [
+      { label: "Opened", color: "green" },
+      { label: "Didn't Open", color: "red" },
+      { label: "Confirm Delivery", color: "yellow" },
+      { label: "Left Feedback", color: "blue" },
+      { label: "Left Negative Feedback", color: "darkblue" },
+    ]
+  .pf-chart-canvas
+    .pf-chart-canvas__top
+      .pf-chart-canvas__legend
+        each it in labels
+          button.pf-chart-canvas__legend-item(
+            class=it.color
+            onclick=`chart.legendClickHandler(this, '${it.label}', window.chartTrackingAnalytics)`
+          )=it.label
+      .pf-chart-canvas__filter
+        each it, i in ["15min", "30min", "1h", "3h"]
+          button.pf-chart-canvas__filter-btn(
+            class=(i === 1 && "actv")
+            onclick="this.classList.toggle('actv')"
+          )=it
+    .pf-chart-canvas__content
+      canvas(id="trackingAnalytics" height="75")
+    script
+      include /data/tracking-analytics.js

@@ -1,0 +1,72 @@
+extends /elements/layout-page
+include /elements/images
+include /components/button/pf-btn-elipse
+include /components/button/pf-btn-elipse-icon
+include /components/button/pf-btn-info
+include /components/button/pf-btn-stats
+include /components/chart/chart-tracking-analytics
+include /components/chart/chart-tracking-feedback
+include /components/chart/chart-call-outgoing
+include /components/pf-table
+
+block data
+  - title = "Rx2Go: Performance Page — Tracking Link Analytics"
+  - activeSections = "Tracking Link Analytics"
+  -
+    const filters = [
+      {
+        title: "Sent Tracking Link",
+        num: "4,012",
+        trendUp: "87,92 %",
+      },
+      {
+        title: "Opened Tracking Link",
+        num: "2,012",
+        trendUp: "87,92 %",
+        color: "green",
+      },
+      {
+        title: "Didn't Open Tracking Link",
+        num: "2,000",
+        trendUp: "87,92 %",
+        color: "red",
+      },
+      {
+        title: "Confirm Delivery",
+        num: "2,000",
+        trendUp: "87,92 %",
+        color: "yellow",
+      },
+      {
+        title: "Left Feedback",
+        num: "2,012",
+        trendUp: "87,92 %",
+        color: "blue",
+      },
+    ]
+    const filters2 = [
+      "Driver",
+      "Dispatcher",
+      "Pharmacy",
+    ]
+
+
+block content
+  h2.pf-title Tracking link analytics
+  .pf-page__filter-list
+    each it in filters
+      +pf-btn-info({
+        title: it.title,
+        num: it.num,
+        trendUp: it.trendUp,
+        trendDown: it.trendDown,
+        stats: it.stats,
+        color: it.color,
+        isHelp: true
+      })
+  .pf-page__content
+    +chart-tracking-analytics({})
+  h2.pf-title Left Feedback
+  .pf-title__subtitle Outgoing Calls
+  .pf-page__content
+    +chart-tracking-feedback({})

@@ -41,6 +41,31 @@
       color: $color-gray-067;
     }
   }
+  &.blue {
+    color: $color-white;
+    background-color: $color-frosty-sky;
+    .pf-btn-info__help-icon,
+    .pf-btn-info__num,
+    .pf-btn-info__trend,
+    .pf-btn-info__stats {
+      color: $color-white;
+    }
+  }
+  &.lightred {
+    background-color: transparentize($color-radical-red, 0.87);
+  }
+  &.lightblue {
+    background-color: $color-periwinkle-crayola-2;
+  }
+  &.lightyellow {
+    background-color: transparentize($color-brilliant-greenish-yellow, 0.7);
+    .pf-btn-info__help-icon,
+    .pf-btn-info__num,
+    .pf-btn-info__trend,
+    .pf-btn-info__stats {
+      color: $color-gray-067;
+    }
+  }
   &.icon {
     display: grid;
     grid-template-rows: auto auto;

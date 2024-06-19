@@ -42,32 +42,112 @@
   display: flex;
   align-items: center;
   column-gap: 16px;
-  margin-bottom: 16px;
 }
 .pf-chart-canvas__legend-item {
+  @include transition(background-color, border-color);
   display: flex;
   align-items: center;
   column-gap: 8px;
-  padding: 6px 12px;
+  margin: 0;
+  padding: 5px 11px;
+  background-color: transparent;
+  border: 0;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
   &::before {
     content: "";
     display: block;
     width: 12px;
     height: 12px;
     background-color: $color-mountain-meadow;
-    border: 1px solid $color-magic-mint;
+    border: 3px solid $color-magic-mint;
     border-radius: 50%;
   }
   &.green::before {
     background-color: $color-mountain-meadow;
     border-color: $color-magic-mint;
   }
+  &.darkgreen::before {
+    background-color: $color-toad-love;
+    border-color: $color-pang;
+  }
   &.blue::before {
     background-color: $color-cornflower-blue;
     border-color: $color-blue-frost;
+  }
+  &.darkblue::before {
+    background-color: $color-blue-azure;
+    border-color: $color-periwinkle;
   }
   &.red::before {
     background-color: $color-radical-red;
     border-color: $color-pink;
   }
+  &.orange::before {
+    background-color: $color-moderate-orange;
+    border-color: $color-shelled-almonds;
+  }
+  &.yellow::before {
+    background-color: $color-brilliant-greenish-yellow;
+    border-color: $color-lemon-cream;
+  }
+  &:not(.actv):hover {
+    border-color: $color-cornflower-blue;
+    border-radius: 30px;
+  }
+  &.actv {
+    background-color: transparentize($color-cornflower, 0.8);
+  }
+}
+.pf-chart-canvas__content {
+  margin-top: 16px;
+}
+
+//
+.pf-chart-tooltip {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  padding: 11px;
+  font-family: $font-account;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-gray-067;
+  background-color: $color-white;
+  border: 1px solid transparentize($color-cornflower-blue, 0.75);
+  border-radius: 12px;
+}
+.pf-dot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  &.green {
+    background-color: $color-green-crayola;
+    border-color: $color-green-crayola;
+  }
+  &.blue {
+    background-color: $color-blue-crayola;
+    border-color: $color-blue-crayola;
+  }
+  &.red {
+    background-color: $color-radical-red;
+    border-color: $color-radical-red;
+  }
+}
+.pf-chart-tooltip__item {
+  display: flex;
+  align-items: center;
+  margin-right: 28px;
+}
+.pf-chart-tooltip__name {
+  margin-left: 8px;
+}
+.pf-chart-tooltip__vatue {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.pf-chart-tooltip__x {
+  opacity: 0.6;
 }

@@ -3,6 +3,7 @@ include /elements/images
 include /components/button/pf-btn-elipse
 include /components/button/pf-btn-elipse-small
 include /components/button/pf-btn-info
+include /components/chart/chart-tickets
 
 block data
   - title = "Rx2Go: Performance Page — Tickets analytics main"
@@ -107,3 +108,5 @@ block content
         trendUp: it.trendUp,
         color: it.color
       })
+  .pf-page__content
+    +chart-tickets({})

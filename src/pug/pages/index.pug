@@ -6,7 +6,10 @@ block data
 
     const deliveryPages = [
       { name: "On time delivery main", url: "delivery/main-page.html" },
-      { name: "On time delivery new-york", url: "delivery/ny-page.html" },
+    ]
+
+    const callPages = [
+      { name: "Call analytics main", url: "call/main-page.html" },
     ]
 
     const trackingPages = [
@@ -91,6 +94,9 @@ block content
 
   h2 On time delivery
   +page-list({ list: deliveryPages })
+
+  h2 Call analytics
+  +page-list({ list: callPages })
 
   h2 Tracking link analytics
   +page-list({ list: trackingPages })

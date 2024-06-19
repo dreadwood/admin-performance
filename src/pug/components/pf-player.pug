@@ -33,8 +33,19 @@ mixin pf-player({})
           classname: "icon-player-mute"
         })
     .pf-player__menu
-      button.pf-player__btn
+      button.pf-player__btn(onclick="document.querySelector('.pf-player__menu-drop').classList.toggle('show')")
         +svg({ name: "icon-player-menu", width: 22, height: 22 })
       .pf-player__menu-drop
-        each it in ["0,5", "0,75", "1", "1,25", "1,5"]
-          button.pf-player__speed-btn(class=(it === "1" && "actv"))=it
+        .pf-player__menu-set.show
+          button.pf-player__set-btn(onclick="document.querySelector('.pf-player__menu-drop').classList.remove('show')")
+            +svg({ name: "icon-player-download", width: 22, height: 22 })
+            | Download
+          button.pf-player__set-btn(onclick="document.querySelector('.pf-player__menu-set').classList.remove('show'); document.querySelector('.pf-player__menu-speed').classList.add('show')")
+            +svg({ name: "icon-player-replay", width: 22, height: 22 })
+            | Replay speed
+        .pf-player__menu-speed
+          each it in ["0,5", "0,75", "1", "1,25", "1,5"]
+            button.pf-player__speed-btn(
+              class=(it === "1" && "actv")
+              onclick="document.querySelector('.pf-player__menu-set').classList.add('show'); document.querySelector('.pf-player__menu-speed').classList.remove('show'); document.querySelector('.pf-player__menu-drop').classList.remove('show');"
+            )=it

@@ -4,11 +4,11 @@ include /components/button/pf-btn-elipse
 include /components/button/pf-btn-elipse-icon
 include /components/button/pf-btn-info
 include /components/button/pf-btn-stats
+include /components/chart/chart-delivery
 
 block data
   - title = "Rx2Go: Performance Page — Tickets analytics main"
   - activeSections = "On time delivery"
-  - const screens = ["All (1,000)", "Open (9)", "Assigned (70)", "In Progress (78)", "Ready to Resolve (778)", "On Hold (778)"]
   -
     const filters = [
       {
@@ -128,17 +128,5 @@ block content
     +pf-btn-stats({ title: "New York", count: "20,455" })
     +pf-btn-stats({ title: "California", count: "2,455" })
     +pf-btn-stats({ title: "Massachusets", count: "6,455" })
-  .pf-chart-canvas
-    .pf-chart-canvas__top
-      .pf-chart-canvas__title All Facilities:
-      .pf-chart-canvas__filter
-        each it, i in ["15min", "30min", "1h", "3h"]
-          button.pf-chart-canvas__filter-btn(
-            class=(i === 1 && "actv")
-            onclick="this.classList.toggle('actv');"
-          )=it
-    .pf-chart-canvas__legend
-      .pf-chart-canvas__legend-item.green On time
-      .pf-chart-canvas__legend-item.blue Early
-      .pf-chart-canvas__legend-item.red Late
-
+  .pf-page__content
+    +chart-delivery({})

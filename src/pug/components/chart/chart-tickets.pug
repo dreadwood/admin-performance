@@ -1,0 +1,26 @@
+mixin chart-tickets({})
+  -
+    const labels = [
+      { label: "Closed", color: "green" },
+      { label: "In the Process", color: "blue" },
+      { label: "Not affected", color: "red" },
+    ]
+  .pf-chart-canvas
+    .pf-chart-canvas__top
+      .pf-chart-canvas__title All Facilities:
+      .pf-chart-canvas__filter
+        each it, i in ["15min", "30min", "1h", "3h"]
+          button.pf-chart-canvas__filter-btn(
+            class=(i === 1 && "actv")
+            onclick=`chart.legendClickHandler(this, '${it.label}', window.chartTickets)`
+          )=it
+    .pf-chart-canvas__legend
+      each it in labels
+        button.pf-chart-canvas__legend-item(
+          class=it.color
+          onclick="this.classList.toggle('actv')"
+        )=it.label
+    .pf-chart-canvas__content
+      canvas(id="tickets" height="75")
+    script
+      include /data/tickets.js

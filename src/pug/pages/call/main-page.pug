@@ -1,0 +1,132 @@
+extends /elements/layout-page
+include /elements/images
+include /components/button/pf-btn-elipse
+include /components/button/pf-btn-elipse-icon
+include /components/button/pf-btn-info
+include /components/button/pf-btn-stats
+include /components/chart/chart-call-income
+include /components/chart/chart-call-outgoing
+include /components/pf-table
+
+block data
+  - title = "Rx2Go: Performance Page — Call Analytics main"
+  - activeSections = "Call Analytics"
+  -
+    const filters = [
+      {
+        title: "All",
+        num: "1,837",
+        trendUp: "12,71 %",
+      },
+      {
+        title: "Answered Calls",
+        num: "1,593",
+        trendUp: "86,72 %",
+        color: "green",
+      },
+      {
+        title: "Speed of Answer",
+        num: "15s",
+        stats: "Min: 1s, Max: 1h 22m 20s",
+      },
+      {
+        title: "Abandoned",
+        num: "20",
+        trendUp: "1,0 %",
+        color: "red",
+      },
+      {
+        title: "Return Abandoned Time",
+        num: "50m 15s",
+        stats: "Min: 39s, Max: 8h 50m 35s",
+        color: "lightred",
+      },
+      {
+        title: "Hung Up",
+        num: "207",
+        trendUp: "11,27 %",
+        color: "lightblue",
+      },
+      {
+        title: "Return Hung Up Time",
+        num: "50m 15s",
+        stats: "Min: 39s, Max: 8h 50m 35s",
+        color: "lightblue",
+      },
+      {
+        title: "Avg. Talk Time Per Call",
+        num: "50m 15s",
+        stats: "Min: 39s, Max: 8h 50m 35s",
+      },
+    ]
+    const filters2 = [
+      {
+        title: "All",
+        num: "12,615",
+        trendUp: "87,92 % %",
+      },
+      {
+        title: "Avg. Talk Time Per Call",
+        num: "15s",
+        stats: "Min: 1s, Max: 1h 22m 20s",
+      },
+      {
+        title: "Successful call",
+        num: "11,345",
+        trendUp: "12,0 %",
+        color: "green",
+      },
+      {
+        title: "Unreachable",
+        num: "1,055",
+        trendUp: "11,27 %",
+        color: "red",
+      },
+      {
+        title: "Voicemail left",
+        num: "215",
+        stats: "11,27 %",
+        color: "yellow",
+      },
+      {
+        title: "Voicemail was not left",
+        num: "215",
+        trendUp: "11,27 %",
+        color: "lightyellow",
+      },
+    ]
+
+
+block content
+  h2.pf-title Call Analytics
+  .pf-title__subtitle Incoming Calls
+  .pf-page__filter-list
+    each it in filters
+      +pf-btn-info({
+        title: it.title,
+        num: it.num,
+        trendUp: it.trendUp,
+        trendDown: it.trendDown,
+        stats: it.stats,
+        color: it.color,
+        isHelp: true
+      })
+  .pf-page__content
+    +chart-call-income({})
+  .pf-title__subtitle Outgoing Calls
+  .pf-page__filter-list
+    each it in filters2
+      +pf-btn-info({
+        title: it.title,
+        num: it.num,
+        trendUp: it.trendUp,
+        trendDown: it.trendDown,
+        stats: it.stats,
+        color: it.color,
+        isHelp: true
+      })
+  .pf-page__content
+    +chart-call-outgoing({})
+  .pf-page__content
+    include /mocks/table-calls
+    +pf-table({ table: tableCalls })
