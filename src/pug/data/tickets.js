@@ -44,6 +44,6 @@
   ]
 
   document.addEventListener('DOMContentLoaded', () => {
-    window.chartDeliveryAll = window.chart.initChart('tickets', data, type)
+    window.chartDeliveryAll = window.chart.initChartBar('tickets', data, type)
   })
 })()

@@ -27,7 +27,7 @@
   ]
 
   document.addEventListener('DOMContentLoaded', () => {
-    window.chartTrackingFeedback = window.chart.initChart(
+    window.chartTrackingFeedback = window.chart.initChartBar(
       'trackingFeedback',
       data,
       type,

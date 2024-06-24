@@ -33,7 +33,7 @@
   ]
 
   document.addEventListener('DOMContentLoaded', () => {
-    window.chartTrackingAnalytics = window.chart.initChart(
+    window.chartTrackingAnalytics = window.chart.initChartBar(
       'trackingAnalytics',
       data,
       type,

@@ -19,9 +19,10 @@
 .pf-page__filter-list {
   --gap: 8px;
   --margin-bottom: 16px;
+  --align-items: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: var(--align-items);
   gap: var(--gap);
   margin-bottom: var(--margin-bottom);
 }

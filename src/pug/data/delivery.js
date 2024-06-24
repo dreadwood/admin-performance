@@ -43,7 +43,38 @@
     { label: 'Late', color: '#FF3C5F' }
   ]
 
+  const chartDoughnutData = [
+    {
+      nodeId: 'chartDoughnutAll',
+      count: [2000, 3567, 1234],
+      color: ['#4ADE80', '#3B82F6', '#FF3C5F']
+    },
+    {
+      nodeId: 'chartDoughnutNY',
+      count: [2000, 3567, 1234],
+      color: ['#4ADE80', '#3B82F6', '#FF3C5F']
+    },
+    {
+      nodeId: 'chartDoughnutCA',
+      count: [2000, 3567, 1234],
+      color: ['#4ADE80', '#3B82F6', '#FF3C5F']
+    },
+    {
+      nodeId: 'chartDoughnutMA',
+      count: [4000, 3567, 1234],
+      color: ['#4ADE80', '#3B82F6', '#FF3C5F']
+    }
+  ]
+
   document.addEventListener('DOMContentLoaded', () => {
-    window.chartDeliveryAll = window.chart.initChart('deliveryAll', data, type)
+    window.chartDeliveryAll = window.chart.initChartBar(
+      'deliveryAll',
+      data,
+      type
+    )
+
+    chartDoughnutData.forEach((wrp) => {
+      window.chart.initChartDonut(wrp)
+    })
   })
 })()

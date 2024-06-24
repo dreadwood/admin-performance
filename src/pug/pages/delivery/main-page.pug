@@ -123,10 +123,28 @@ block content
         icon: it.icon,
         isActive: it.active
       })
-  .pf-page__filter-list(style="--margin-bottom: 24px;")
-    +pf-btn-stats({ title: "All Facilities", count: "32,455" })
-    +pf-btn-stats({ title: "New York", count: "20,455" })
-    +pf-btn-stats({ title: "California", count: "2,455" })
-    +pf-btn-stats({ title: "Massachusets", count: "6,455" })
+  .pf-page__filter-list(style="--margin-bottom: 24px; --align-items: flex-start;")
+    +pf-btn-stats({
+      title: "All Facilities",
+      count: "32,455",
+      id: 'chartDoughnutAll'
+    })
+    +pf-btn-stats({
+      title: "New York",
+      count: "20,455",
+      id: 'chartDoughnutNY'
+    })
+    +pf-btn-stats({
+      title: "California",
+      count: "2,455",
+      id: 'chartDoughnutCA'
+    })
+    +pf-btn-stats({
+      title: "Massachusets",
+      count: "6,455",
+      id: 'chartDoughnutMA'
+    })
   .pf-page__content
     +chart-delivery({})
+  script
+    include /data/delivery.js

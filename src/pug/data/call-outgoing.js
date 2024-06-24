@@ -44,6 +44,10 @@
   ]
 
   document.addEventListener('DOMContentLoaded', () => {
-    window.chartCallIncome = window.chart.initChart('callOutgoing', data, type)
+    window.chartCallIncome = window.chart.initChartBar(
+      'callOutgoing',
+      data,
+      type
+    )
   })
 })()
