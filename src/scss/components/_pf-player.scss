@@ -68,11 +68,25 @@
     display: block;
     width: 100%;
   }
+  &.hide {
+    display: none;
+  }
+}
+.pf-player__info {
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 120%;
+  text-align: center;
+  color: transparentize($color-gray-blue, 0.5);
+  &.hide {
+    display: none;
+  }
 }
 .pf-player__menu-drop {
   position: absolute;
   top: calc(100% + 5px);
   right: 0;
+  z-index: 1;
   display: none;
   width: 180px;
   padding: 12px;

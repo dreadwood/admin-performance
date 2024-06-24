@@ -1,8 +1,13 @@
 include /elements/images
 
 mixin pf-player({})
-  .pf-player
-    button.pf-player__btn-play(onClick="this.classList.toggle('playing')")
+  .pf-player(
+    data-audio="/audio/33a-tbiliso.mp3"
+    data-color-wave="#4AA3EF"
+    data-color-progress="#1B1D21"
+    data-file-name="audio"
+  )
+    button.pf-player__btn-play
       +svg({
         name: "icon-player-play",
         width: 24,
@@ -15,11 +20,11 @@ mixin pf-player({})
         height: 24,
         classname: "icon-player-pause"
       })
-    .pf-player__time 0:39
-    .pf-player__timeline
-      img(src="/img/player-timeline@2x.png" weight="307" height="30")
+    .pf-player__time 0:00
+    .pf-player__info Loading...
+    .pf-player__timeline.hide
     .pf-player__volume
-      button.pf-player__btn-volume(onClick="this.classList.toggle('mute')")
+      button.pf-player__btn-volume
         +svg({
           name: "icon-player-volume",
           width: 22,
@@ -33,14 +38,14 @@ mixin pf-player({})
           classname: "icon-player-mute"
         })
     .pf-player__menu
-      button.pf-player__btn(onclick="document.querySelector('.pf-player__menu-drop').classList.toggle('show')")
+      button.pf-player__btn
         +svg({ name: "icon-player-menu", width: 22, height: 22 })
       .pf-player__menu-drop
         .pf-player__menu-set.show
-          button.pf-player__set-btn(onclick="document.querySelector('.pf-player__menu-drop').classList.remove('show')")
+          button.pf-player__set-btn.pf-player__set-btn--download(onclick="document.querySelector('.pf-player__menu-drop').classList.remove('show')")
             +svg({ name: "icon-player-download", width: 22, height: 22 })
             | Download
-          button.pf-player__set-btn(onclick="document.querySelector('.pf-player__menu-set').classList.remove('show'); document.querySelector('.pf-player__menu-speed').classList.add('show')")
+          button.pf-player__set-btn.pf-player__set-btn--speed(onclick="document.querySelector('.pf-player__menu-set').classList.remove('show'); document.querySelector('.pf-player__menu-speed').classList.add('show')")
             +svg({ name: "icon-player-replay", width: 22, height: 22 })
             | Replay speed
         .pf-player__menu-speed
