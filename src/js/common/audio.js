@@ -1,6 +1,6 @@
 'use strict'
 //
-function initPlayer(player) {
+function initPfPlayer(player) {
   if (!player instanceof Element) {
     console.error('A suitable HTMLElement for the player is required')
     return
@@ -32,6 +32,16 @@ function initPlayer(player) {
         '.pf-player__menu-set',
         '.pf-player__menu-speed'
       ])
+    )
+    return
+  }
+
+  const trackVolume = document.querySelector('.pf-player__line')
+  const progressVolume = document.querySelector('.pf-player__line-progress')
+
+  if (!trackVolume || !progressVolume) {
+    console.error(
+      generateError(['.pf-player__line', '.pf-player__line-progress'])
     )
     return
   }
@@ -71,12 +81,14 @@ function initPlayer(player) {
 
   const wavesurfer = WaveSurfer.create({
     container: timelineEl,
-    waveColor: player.dataset.colorWave || '#4AA3EF',
-    progressColor: player.dataset.colorProgress || '#1B1D21',
+    waveColor: player.dataset.colorWave || '#96BFE2',
+    progressColor: player.dataset.colorProgress || '#4AA3EF',
     url: player.dataset.audio,
     height: 30,
-    cursorWidth: 0
+    cursorWidth: 2
   })
+
+  volumeHandler()
 
   playBtn.addEventListener('click', () => {
     if (playBtn.classList.contains('playing')) {
@@ -189,12 +201,48 @@ function initPlayer(player) {
     return `There are not enough elements with selectors ${str} in the player`
   }
 
+  function volumeHandler() {
+    let isDragging = false
+
+    trackVolume.addEventListener('click', trackHandler)
+
+    trackVolume.addEventListener('mousedown', () => {
+      isDragging = true
+    })
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false
+    })
+
+    trackVolume.addEventListener('mousemove', (evt) => {
+      if (!isDragging) return
+      trackHandler(evt)
+    })
+
+    function trackHandler(evt) {
+      const rect = trackVolume.getBoundingClientRect()
+      const offsetX = evt.clientX - rect.left
+      const trackWidth = rect.width
+      let newLeft = offsetX
+
+      if (newLeft < 0) {
+        newLeft = 0
+      } else if (newLeft > trackWidth) {
+        newLeft = sliderWidth
+      }
+
+      const ratio = newLeft / trackWidth
+      console.log(ratio)
+
+      if (ratio === 0) {
+        volumeBtn.classList.add('mute')
+      } else {
+        volumeBtn.classList.remove('mute')
+      }
+
+      progressVolume.style.width = `${ratio * 100}%`
+    }
+  }
+
   return wavesurfer
 }
-
-const playerLayout = document.querySelector('.pf-player')
-const player = initPlayer(playerLayout)
-
-// setTimeout(() => {
-//   player.destroy()
-// }, 2000)

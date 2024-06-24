@@ -3,8 +3,8 @@ include /elements/images
 mixin pf-player({})
   .pf-player(
     data-audio="/audio/33a-tbiliso.mp3"
-    data-color-wave="#4AA3EF"
-    data-color-progress="#1B1D21"
+    data-color-wave="#96BFE2"
+    data-color-progress="#4AA3EF"
     data-file-name="audio"
   )
     button.pf-player__btn-play
@@ -23,20 +23,23 @@ mixin pf-player({})
     .pf-player__time 0:00
     .pf-player__info Loading...
     .pf-player__timeline.hide
-    .pf-player__volume
-      button.pf-player__btn-volume
-        +svg({
-          name: "icon-player-volume",
-          width: 22,
-          height: 22,
-          classname: "icon-player-volume"
-        })
-        +svg({
-          name: "icon-player-mute",
-          width: 22,
-          height: 22,
-          classname: "icon-player-mute"
-        })
+    .pf-player__volume-wrp
+      .pf-player__line
+        .pf-player__line-progress(style="width: 100%;")
+      .pf-player__volume
+        button.pf-player__btn-volume
+          +svg({
+            name: "icon-player-volume",
+            width: 22,
+            height: 22,
+            classname: "icon-player-volume"
+          })
+          +svg({
+            name: "icon-player-mute",
+            width: 22,
+            height: 22,
+            classname: "icon-player-mute"
+          })
     .pf-player__menu
       button.pf-player__btn
         +svg({ name: "icon-player-menu", width: 22, height: 22 })
@@ -54,3 +57,9 @@ mixin pf-player({})
               class=(it === "1" && "actv")
               onclick="document.querySelector('.pf-player__menu-set').classList.add('show'); document.querySelector('.pf-player__menu-speed').classList.remove('show'); document.querySelector('.pf-player__menu-drop').classList.remove('show');"
             )=it
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const playerLayout = document.querySelector('.pf-player')
+      const player = initPfPlayer(playerLayout)
+    })
+

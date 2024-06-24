@@ -44,6 +44,37 @@
     }
   }
 }
+.pf-player__volume-wrp {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  margin: 0 -2px;
+  padding: 2px 6px;
+  &:hover,
+  &:focus,
+  &:focus-within {
+    background-color: $color-white;
+    border-radius: 30px;
+    .pf-player__line {
+      display: block;
+
+    }
+  }
+}
+.pf-player__line {
+  display: none;
+  width: 40px;
+  height: 4px;
+  background-color: transparentize($color-cornflower-blue, 0.6);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.pf-player__line-progress {
+  height: 100%;
+  background-color: $color-cornflower-blue;
+  border-radius: 20px;
+  cursor: pointer;
+}
 .pf-player__btn-volume {
   .icon-player-mute {
     display: none;
