@@ -23,7 +23,10 @@ const clean = async () => {
 
 const copy = () => {
   return gulp
-    .src(['src/fonts/**/*.{woff,woff2}', 'src/favicon/**/*'], { base: 'src' })
+    .src(
+      ['src/fonts/**/*.{woff,woff2}', 'src/favicon/**/*', 'src/audio/**/*'],
+      { base: 'src' }
+    )
     .pipe(gulp.dest('dist'))
 }
 
